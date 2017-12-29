@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
  * Created by paranoid on 17-4-12.
  */
 public class RedisDB {
-//    private static JedisPool jedisPool;
+    //    private static JedisPool jedisPool;
     private static String addr;
     private static int port;
     private static String passwd;
@@ -53,6 +53,7 @@ public class RedisDB {
         Jedis jedis = new Jedis(addr, port);
         //权限认证
         jedis.auth(passwd);
+        jedis.select(2);
 
         return jedis;
     }

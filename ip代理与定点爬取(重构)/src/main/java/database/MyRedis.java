@@ -28,7 +28,7 @@ public class MyRedis {
     public IPMessage getIPByList() {
         int rand = (int)(Math.random()*jedis.llen("IPPool"));
 
-        Object o = SerializeUtil.unserialize(jedis.lindex("IPPool".getBytes(), 0));
+        Object o = SerializeUtil.unserialize(jedis.lindex("IPPool".getBytes(), rand));
         if (o instanceof IPMessage) {
             return (IPMessage)o;
         } else {
